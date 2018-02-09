@@ -1,0 +1,32 @@
+
+.reg_box{
+	width:35%; 
+	margin: 10% auto; 
+	border: 2px solid gray; 
+	padding: 15px; 
+	border-radius: 10px;
+}
+table{
+	width: 90%; 
+	font-size: 1.3em; 
+	box-sizing: border-box; 
+	margin: 0 auto;
+}
+input{
+	width: 100%;
+	font-size: 1.0em;
+}
+
+input[type='submit']{
+	padding: 15px;
+	font-size: 1.2em;
+}
+
+table tr td{
+	box-sizing: border-box;
+	padding: 0;
+}
+
+.field_name{
+	width: 40%;
+}

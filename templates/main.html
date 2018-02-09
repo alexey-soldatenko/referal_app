@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+<html>
+<head>
+	<title>Referers</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+
+<div class="head">Финансовая пирамида</div>
+
+<div>
+	<a href="/registration">
+		<div class="register">Регистрация</div>
+	</a>
+</div>
+
+<div>
+	<a href="/activate">
+		<div class="activate">Активировать аккаунт</div>
+	</a>
+</div>
+
+
+<div class="all_box">
+	<p>Наши участники:</p>
+	{%for my_user in users%}
+		<p>"<b>{{my_user.user.username}}</b>" рейтинг - {{my_user.user_rating}}б</p>
+		<p><a href="{{my_user.referal_link}}">Вступить в команду {{my_user.user.username}}</a></p>
+	{%endfor%}
+</div>
+
+<div class="footer">
+&copy;Финансовая пирамида
+</div>
+</body>
+</html>

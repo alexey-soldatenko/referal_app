@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/registration.css' %}">
+	<script type="text/javascript">
+		function validate_password(){
+			var password = document.getElementById('password');
+			var confirm_password = document.getElementById('confirm_password');
+			if (password.value == confirm_password.value){
+				confirm_password.setCustomValidity('');
+			}
+			else{
+				confirm_password.setCustomValidity('Пароли не совпадают');
+			}
+		}	
+	</script>
+</head>
+<body>
+
+<div class="reg_box">
+<div style="text-align: center; color: orange; font-size: 20px;">Регистрация на самом лучшем сайте!</div>
+	<table cellspacing="15">
+	<form action="/user_reg" method="post">
+		{%csrf_token%}
+		<input type="text" name="referer_id" value="{{referer_id}}" hidden>
+		<tr>
+			<td>
+				<input type="text" name="user_name" style="box-sizing: border-box;" placeholder="Ваше имя" required>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="email" name="user_email" style="box-sizing: border-box;" placeholder="Электронная почта" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="password" name="user_password1" style="box-sizing: border-box;" placeholder="Пароль" id="password" onchange="validate_password()" required>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="password" name="user_password2" style="box-sizing: border-box;" id="confirm_password" placeholder="Повторите пароль" onkeyup="validate_password()" required>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="submit" name="" value="Отправить">
+			</td>
+		</tr>
+		</form>
+	</table>
+</div>
+</body>
+</html>
